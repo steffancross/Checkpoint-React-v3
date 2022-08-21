@@ -10,16 +10,15 @@ const cody = {
 
 // PetList only renders one SinglePet. We'd like it to render a list of pets,
 // passed in as props.pets. Don't forget to add a unique key to each one!
-class PetList extends React.Component {
-  render() {
-    return (
-      <>
-        <div className="pet-list">
-          <SinglePet pet={cody} />
-        </div>
-      </>
-    );
-  }
-}
+
+const PetList = () => {
+  return (
+    <>
+      <div className="pet-list">
+        <SinglePet pet={cody} />
+      </div>
+    </>
+  );
+};
 
 export default PetList;

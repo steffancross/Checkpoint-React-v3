@@ -5,15 +5,13 @@ import PetList from './PetList';
 // of pets from the server! We won't need samplePets after that.
 import samplePets from '../petdata';
 
-class Root extends React.Component {
-  render() {
-    return (
-      <>
-        <h1>Adoption Center</h1>
-        <PetList pets={samplePets} />
-      </>
-    );
-  }
-}
+const Root = () => {
+  return (
+    <>
+      <h1>Adoption Center</h1>
+      <PetList pets={samplePets} />
+    </>
+  );
+};
 
 export default Root;
