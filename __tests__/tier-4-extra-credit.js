@@ -24,7 +24,7 @@ describe('EXTRA CREDIT: Tier 4: DeletePet component', () => {
     mockAxios.onDelete('/api/pets/1').reply(204);
     render(<DeletePet petId={1} handleDelete={() => {}} />);
 
-    const deletePetButton = screen.queryByText('Delete');
+    const deletePetButton = screen.queryByText(/Delete/i);
 
     await user.click(deletePetButton);
 
@@ -38,7 +38,7 @@ describe('EXTRA CREDIT: Tier 4: DeletePet component', () => {
     const handleDeleteSpy = spy();
     render(<DeletePet petId={2} handleDelete={handleDeleteSpy} />);
 
-    const deletePetButton = screen.queryByText('Delete');
+    const deletePetButton = screen.queryByText(/Delete/i);
 
     await user.click(deletePetButton);
 
@@ -53,7 +53,7 @@ describe('EXTRA CREDIT: Tier 4: DeletePet component', () => {
     const handleDeleteSpy = spy();
     render(<DeletePet petId={2} handleDelete={handleDeleteSpy} />);
 
-    const deletePetButton = screen.queryByText('Delete');
+    const deletePetButton = screen.queryByText(/Delete/i);
 
     await user.click(deletePetButton);
 
@@ -86,7 +86,7 @@ describe('EXTRA CREDIT: Tier 4: DeletePet component', () => {
       };
       render(<SinglePet pet={anabelle} />);
 
-      expect(screen.queryByText('Delete')).toBeTruthy();
+      expect(screen.queryByText(/Delete/i)).toBeTruthy();
     });
   });
 
@@ -128,7 +128,7 @@ describe('EXTRA CREDIT: Tier 4: DeletePet component', () => {
     expect(screen.queryByText('Rigatoni')).toBeTruthy();
     expect(screen.queryByText('Cody')).toBeTruthy();
 
-    const deletePetButton = screen.queryAllByText('Delete')[0];
+    const deletePetButton = screen.queryAllByText(/Delete/i)[0];
 
     await user.click(deletePetButton);
 

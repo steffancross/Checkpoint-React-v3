@@ -65,7 +65,7 @@ describe('Tier 3: Root component', () => {
     mockAxios.onGet('/api/pets').reply(200, samplePets);
 
     const { rerender } = render(<Root />);
-    expect(screen.queryByText('Loading')).toBeTruthy();
+    expect(screen.queryByText(/Loading/i)).toBeTruthy();
 
     await act(() => {
       rerender(<Root />);
@@ -81,7 +81,7 @@ describe('Tier 3: Root component', () => {
       render(<Root />);
     });
 
-    expect(screen.queryByText(/Error/)).toBeTruthy();
+    expect(screen.queryByText(/Error/i)).toBeTruthy();
     expect(screen.queryByText('Frankie')).toBeFalsy();
   });
 });

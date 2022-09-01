@@ -55,18 +55,18 @@ describe('Tier 1 Tests:', () => {
 
   test("renders a pet's name, description, and species passed in as props", () => {
     render(<SinglePet pet={rigatoni} />);
-    expect(screen.queryByText('Rigatoni')).toBeTruthy();
+    expect(screen.queryByText(/Rigatoni/i)).toBeTruthy();
     expect(
-      screen.queryByText('A flaming hot cheetoh in feline form')
+      screen.queryByText(/A flaming hot cheetoh in feline form/i)
     ).toBeTruthy();
     expect(screen.queryByText('cat')).toBeTruthy();
   });
 
   test('renders different name, description, and species if passed different props', () => {
     render(<SinglePet pet={cody} />);
-    expect(screen.queryByText('Cody')).toBeTruthy();
-    expect(screen.queryByText('Adorable pug who loves to hug')).toBeTruthy();
-    expect(screen.queryByText('dog')).toBeTruthy();
+    expect(screen.queryByText(/Cody/i)).toBeTruthy();
+    expect(screen.queryByText(/Adorable pug who loves to hug/i)).toBeTruthy();
+    expect(screen.queryByText(/dog/i)).toBeTruthy();
   });
 
   test("renders a 'Toggle Status' button'", () => {
@@ -77,43 +77,43 @@ describe('Tier 1 Tests:', () => {
 
   test("the 'Toggle Status' button toggles 'Available' to 'Adopted!'", async () => {
     render(<SinglePet pet={rigatoni} />);
-    const toggleAdoptedButton = screen.queryByText('Toggle Status');
+    const toggleAdoptedButton = screen.queryByText(/Toggle Status/i);
 
     // The component should render "Available for adoption" and not "Adopted!"
-    expect(screen.queryByText('Available')).toBeTruthy();
-    expect(screen.queryByText('Adopted!')).not.toBeTruthy();
+    expect(screen.queryByText(/Available/i)).toBeTruthy();
+    expect(screen.queryByText(/Adopted/i)).not.toBeTruthy();
 
     // Click the button!
     await user.click(toggleAdoptedButton);
 
     // NOW the component should render "Adopted!"
-    expect(screen.queryByText('Adopted!')).toBeTruthy();
-    expect(screen.queryByText('Available')).not.toBeTruthy();
+    expect(screen.queryByText(/Adopted/i)).toBeTruthy();
+    expect(screen.queryByText(/Available/i)).not.toBeTruthy();
   });
 
   test("the 'Toggle Status' button toggles 'Adopted!' to 'Available'", async () => {
     const user = userEvent.setup();
     render(<SinglePet pet={rigatoni} />);
-    const toggleAdoptedButton = screen.queryByText('Toggle Status');
+    const toggleAdoptedButton = screen.queryByText(/Toggle Status/i);
 
     // Click the button!
     await user.click(toggleAdoptedButton);
 
     // The component should render "Adopted!"
-    expect(screen.queryByText('Adopted!')).toBeTruthy();
-    expect(screen.queryByText('Available')).not.toBeTruthy();
+    expect(screen.queryByText(/Adopted/i)).toBeTruthy();
+    expect(screen.queryByText(/Available/i)).not.toBeTruthy();
 
     // Click the button again!
     await user.click(toggleAdoptedButton);
 
     // The component should render "Available for adoption" and not "Adopted!"
-    expect(screen.queryByText('Available')).toBeTruthy();
-    expect(screen.queryByText('Adopted!')).not.toBeTruthy();
+    expect(screen.queryByText(/Available/i)).toBeTruthy();
+    expect(screen.queryByText(/Adopted/i)).not.toBeTruthy();
   });
 
   test("the 'Toggle Status' button toggles the 'adopted' css class", async () => {
     const { container } = render(<SinglePet pet={rigatoni} />);
-    const toggleAdoptedButton = screen.queryByText('Toggle Status');
+    const toggleAdoptedButton = screen.queryByText(/Toggle Status/i);
 
     // At first, the container div should not have the adopted class applied
     expect(container.querySelector('.single-pet')).toBeTruthy();
