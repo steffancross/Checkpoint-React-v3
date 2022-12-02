@@ -59,7 +59,7 @@ describe('Tier 1 Tests:', () => {
     expect(
       screen.queryByText(/A flaming hot cheetoh in feline form/i)
     ).toBeTruthy();
-    expect(screen.queryByText('cat')).toBeTruthy();
+    expect(screen.queryByText(/cat/i)).toBeTruthy();
   });
 
   test('renders different name, description, and species if passed different props', () => {
