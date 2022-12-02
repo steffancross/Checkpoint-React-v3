@@ -41,7 +41,7 @@ describe('Tier 3: Root component', () => {
       render(<Root />);
     });
     expect(screen.queryByText('Rigatoni')).toBeTruthy();
-    expect(screen.queryByText('Cody')).toBeTruthy;
+    expect(screen.queryByText('Cody')).toBeTruthy();
     expect(screen.queryByText('Frankie')).toBeFalsy();
     expect(screen.queryByText('Anabelle')).toBeFalsy();
   });
