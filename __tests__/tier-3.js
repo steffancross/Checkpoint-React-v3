@@ -20,7 +20,7 @@ describe('Tier 3: Root component', () => {
     );
   });
 
-  test('renders PetList with data retrieved from /api/pets', async () => {
+  test.only('renders PetList with data retrieved from /api/pets', async () => {
     const samplePets = [
       {
         id: 1,

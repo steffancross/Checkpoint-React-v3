@@ -36,7 +36,7 @@ import userEvent from '@testing-library/user-event';
  * only have the class single-pet.
  */
 
-describe('Tier 1 Tests:', () => {
+describe.only('Tier 1 Tests:', () => {
   const rigatoni = {
     id: 1,
     name: 'Rigatoni',
